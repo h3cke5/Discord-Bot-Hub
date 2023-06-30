@@ -1,0 +1,7 @@
+- Nome: Discord-Bot-Hub
+- Versão: V14
+- Creditos: @pkdev / @vexy2404 
+- (Adicionei algumas coisas por exemplo: alterei o config.json para .env TOKEN=SEU-TOKEN e sempre que alguem entrar o site era ajustar a tela)
+- Codigo: https://github.com/h3cke5/Discord-Bot-Hub
+- ?: Devo adicionar sistema de alterar linguagem do site e sistema de login pelo token?
+- Tutorial: https://cdn.discordapp.com/attachments/1117656582747070494/1124138394822385714/Tutorial.mp4 (Tutorial Feito Por: @pk)
