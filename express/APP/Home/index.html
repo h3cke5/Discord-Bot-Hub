@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/linguagens.css">
+    
+
+    <title>Page - Home</title>
+</head>
+<body>
+    <div class="container" >
+        <div class="guilds" id="guilds">
+            <div class="logo-guild" id="ayxa">
+                <a href="" target="_blank"><img src="images/logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="channels" id="channels">
+            <div class="channels-header">
+                <div class="guild-name" id="guild-name">Discord-BOT-Hub</div>
+            </div>
+            <div class="channels-main" id="channels-main">
+            </div>
+            
+        </div>
+        <div class="chat">
+            <div class="chat-header" id="chat-header">Nenhum Chat Selecionado</div>
+            <div class="chat-main" id="chat-main">
+                <div class="message2">
+                    <div class="chat-display" id="chat-display">
+                        <div class="message" id="">
+                                <img class="message-icon" src="images/logo.png">
+                                <div class="message-body">
+                                    <div class="message-header">@Discord-Hub-Tutorial</div>
+                                    <div class="message-content">Escolha Um Servidor E Depois O Canal!</div>
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="chat-input" id="chat-input">
+                <input id="input" placeholder="Sua Mensagem Aqui">
+                <button class="button-enviar" id="button-enviar"><img src="images/enviar-mensagem.png"></button>
+            </div>
+        </div>
+    </div>
+
+  <script>
+    window.addEventListener('load', function () {
+        const container = document.querySelector('.container');
+        container.style.width = window.innerWidth + 'px';
+        container.style.height = window.innerHeight + 'px';
+    });
+</script>
+  
+    <script src="/js/guilds.js"></script>
+</body>
+</html>

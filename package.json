@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "name": "Discord-Hub",
+  "version": "1.0.1",
+  "main": "./express/express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "h3cke5",
+  "license": "ISC",
+  "description": "Interface Web Para Controlar Seu BOT Através Do Navegador Como Se Estivesse Conectado A Uma Conta Do Discord.",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h3cke5/Discord-Bot-Hub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/h3cke5/Discord-Bot-Hub"
+  },
+  "homepage": "https://github.com/h3cke5/Discord-Bot-Hub"
+}
