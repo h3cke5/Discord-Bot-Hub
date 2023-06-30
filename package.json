@@ -8,7 +8,7 @@
   "version": "1.0.1",
   "main": "./express/express.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "author": "h3cke5",
   "license": "ISC",
