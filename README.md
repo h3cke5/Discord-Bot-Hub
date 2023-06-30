@@ -1,4 +1,5 @@
 - Nome: Discord-Bot-Hub
+- Descrição: Interface Web Para Controlar Seu BOT Através Do Navegador Como Se Estivesse Conectado A Uma Conta Do Discord.
 - Versão: V14
 - Creditos: @pkdev / @vexy2404 
 - (Adicionei algumas coisas por exemplo: alterei o config.json para .env TOKEN=SEU-TOKEN e sempre que alguem entrar o site era ajustar a tela)
