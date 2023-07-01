@@ -34,7 +34,7 @@ function guildChannels(id, name){
             const channelElement = document.createElement('div')
             channelElement.classList.add('channel')
             channelElement.id = channel.id
-            channelElement.textContent = channel.name
+            channelElement.textContent = `# `+channel.name
 
             channelsContainer.appendChild(channelElement);
             channelElement.addEventListener('click', event => {
@@ -52,7 +52,7 @@ function guildChannels(id, name){
 }
 function messagesChannels(guild,id, name){
     const channelName = document.getElementById('chat-header')
-    channelName.textContent = name
+    channelName.textContent = "# "+name
 
     const chatContainer = document.getElementById('chat-display');
     chatContainer.innerHTML = '';
@@ -87,11 +87,100 @@ function messagesChannels(guild,id, name){
             const messagecontentElement = document.createElement('div')
             messagecontentElement.classList.add('message-content')
             messagecontentElement.textContent = message.content
+            
 
             messageheaderElement.appendChild(messageDataElement)
             messagebodyElement.appendChild(messageheaderElement)
             messagebodyElement.appendChild(messagecontentElement)
+            if(message.embeds.length > 0 &&!message.content.startsWith('https://media.discordapp.net/attachments/' )){
+                message.embeds.forEach(embed => {
+                    const messageembedElement = document.createElement('div')
+                    messageembedElement.classList.add('message-embed')
 
+                    const embedElement = document.createElement('div')
+                    embedElement.classList.add('embed')
+
+                    const messageembedoneElement = document.createElement('div')
+                    messageembedoneElement.classList.add('message-embed-one')
+                    if(embed.author){
+                        const embedauthorElement = document.createElement('div')
+                        embedauthorElement.classList.add('embed-author')
+
+                        const authorimageElement = document.createElement('img')
+                        authorimageElement.src = embed.author.icon_url
+                        embedauthorElement.appendChild(authorimageElement)
+
+                        const embedauthornameElement = document.createElement('div')
+                        embedauthornameElement.classList.add('embed-author-name')
+                        embedauthornameElement.textContent = embed.author.name
+                        embedauthorElement.appendChild(embedauthornameElement)
+                        
+                        messageembedoneElement.appendChild(embedauthorElement)
+                    }
+                    const embedmainElement = document.createElement('div')
+                    embedmainElement.classList.add('embed-main')
+
+                    if(embed.title){
+                        const embedtitleElement = document.createElement('div')
+                        embedtitleElement.classList.add('embed-title')
+                        embedtitleElement.textContent = embed.title
+                        embedmainElement.appendChild(embedtitleElement)
+                    }
+                    if(embed.description){
+                        const embeddescriptionElement = document.createElement('div')
+                        embeddescriptionElement.classList.add('embed-description')
+                        embeddescriptionElement.textContent = embed.description
+                        embedmainElement.appendChild(embeddescriptionElement)
+                    }
+                    const messageembedtwoElement = document.createElement('div')
+                    messageembedtwoElement.classList.add('message-embed-two')
+                    if(embed.thumbnail){                        
+                        const messagethumbnailElement = document.createElement('img')
+                        messagethumbnailElement.src = embed.thumbnail.url
+
+                        messageembedtwoElement.appendChild(messagethumbnailElement)
+                    }
+                    messageembedElement.appendChild(embedElement)
+                    if(embed.image){
+                        const embedimageElement = document.createElement('img')
+                        embedimageElement.classList.add('embed-image')
+                        embedimageElement.src = embed.thumbnail.url
+
+                        messageembedElement.appendChild(embedimageElement)
+                    }
+                    messageembedoneElement.appendChild(embedmainElement)
+                    embedElement.appendChild(messageembedoneElement)
+                    embedElement.appendChild(messageembedtwoElement)
+                    
+                    messagebodyElement.appendChild(messageembedElement)
+                    
+                    // if(embed.image){
+                    //     const messageimageElement = document.createElement('img')
+                    //     messageimageElement.classList.add('message-image')
+
+                    //     messageimageElement.src = embed.image.url
+                    // }
+
+                })
+            }
+            if(message.image || message.content.startsWith('https://media.discordapp.net/attachments/')){
+                const messageimageElement = document.createElement('div')
+                messageimageElement.classList.add('message-image')
+                messagebodyElement.appendChild(messageimageElement)
+                if(message.content.startsWith('https://media.discordapp.net/attachments/')){
+                    const messageurlimageElement = document.createElement('img')
+                    messageurlimageElement.src = message.content;
+                    messageurlimageElement.alt = 'image';
+                    messageimageElement.appendChild(messageurlimageElement)
+                }
+                
+                message.image.forEach(image => {
+                    const messageurlimageElement = document.createElement('img')
+                    messageurlimageElement.src = image.url || message.content;
+                    messageurlimageElement.alt = 'image';
+                    messageimageElement.appendChild(messageurlimageElement)
+                })
+            }
             messageElement.appendChild(avatarElement)
             messageElement.appendChild(messagebodyElement)
             chatContainer.appendChild(messageElement)

@@ -13,7 +13,6 @@
   "author": "h3cke5",
   "license": "ISC",
   "description": "Interface Web Para Controlar Seu BOT Através Do Navegador Como Se Estivesse Conectado A Uma Conta Do Discord.",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/h3cke5/Discord-Bot-Hub.git"

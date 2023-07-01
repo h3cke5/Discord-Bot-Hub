@@ -15,9 +15,9 @@ const client = new Client({ intents: [
   GatewayIntentBits.MessageContent
 ]});
 
-// Configuração Inicial Do BOT Discord
+// Configuração Inicial Do Bot Discord
 client.on('ready', () => {
-  console.log(`[Painel] BOT Iniciado Como: ${client.user.tag}`);
+  console.log(`[BOT] Iniciado Como: ${client.user.tag}`);
 });
 
 app.use(express.static(__dirname + '/assets'));
@@ -65,7 +65,7 @@ app.get('/messages/:channelId', async (req, res) => {
 
     const channel = client.channels.cache.get(channelId);
     if (!channel) {
-      return res.status(404).json({ error: 'Servidor Não Encontrado!' });
+      return res.status(404).json({ error: 'Servidor Não Encontrado' });
     }
 
 
@@ -73,15 +73,15 @@ app.get('/messages/:channelId', async (req, res) => {
     let mensagem = []
     messages.forEach(message => {
       if(message){
-        mensagem.push({user: {username: message.author.username, avatar: message.author.avatar, id: message.author.id}, content: message.content, data: message.createdTimestamp})
+          mensagem.push({user: {username: message.author.username, avatar: message.author.avatar, id: message.author.id}, content: message.content, data: message.createdTimestamp, image: message.attachments, embeds: message.embeds })
       }else{
-        mensagem.push[{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Nenhuma Mensagem Encontrada!`, data: null}]
+        mensagem.push[{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Nenhuma Mensagem Encontrada`, data: null}]
       }
       
     });
     res.json(mensagem);
   } catch (error) {
-    mensagem = [{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Nenhuma Mensagem Encontrada!`}]
+    mensagem = [{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Erro 404`}]
     res.json(mensagem);
   }
   
@@ -95,7 +95,7 @@ app.get('/', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`[Servidor] Está Rodando Em: http://localhost:${port}`);
+  console.log(`[Servidor] Rodando Em: http://localhost:${port}`);
 });
 
 client.login(token)
